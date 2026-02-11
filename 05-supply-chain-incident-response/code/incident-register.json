@@ -1,0 +1,62 @@
+{
+  "_metadata": {
+    "pack": "supply-chain-incident-response",
+    "version": "1.0.0",
+    "description": "Third-party incident register. Every incident timestamped."
+  },
+  "incidents": [
+    {
+      "incident_id": "SCRM-IR-001",
+      "type": "TABLETOP",
+      "vendor": "IdentityFirst Inc",
+      "severity": "Tier 2",
+      "detection_source": "Vendor self-disclosure (simulated)",
+      "date": "2026-02-08",
+      "timeline": {
+        "notification_received": "2026-02-08T10:00:00Z",
+        "classified": "2026-02-08T10:02:15Z",
+        "containment_triggered": "2026-02-08T10:03:30Z",
+        "accounts_disabled": "2026-02-08T10:04:14Z",
+        "sessions_revoked": "2026-02-08T10:04:18Z",
+        "soc_notified": "2026-02-08T10:04:22Z",
+        "api_keys_rotated": "2026-02-08T10:18:00Z",
+        "blast_radius_complete": "2026-02-08T10:45:00Z",
+        "ciso_briefed": "2026-02-08T11:00:00Z",
+        "vendor_demand_sent": "2026-02-08T11:30:00Z",
+        "vendor_responded": "2026-02-08T14:00:00Z",
+        "incident_closed": "2026-02-08T16:00:00Z"
+      },
+      "containment_time_seconds": 262,
+      "blast_radius_summary": "Directory read operations only. No write. No lateral movement.",
+      "vendor_accountability_score": 80,
+      "lessons_learned": "API key rotation was manual and slow (14 min). Pre-stage rotation procedures.",
+      "status": "CLOSED"
+    },
+    {
+      "incident_id": "SCRM-IR-002",
+      "type": "TABLETOP",
+      "vendor": "HR-Cloud SaaS",
+      "severity": "Tier 1",
+      "detection_source": "Vendor email notification (simulated)",
+      "date": "2026-02-09",
+      "timeline": {
+        "notification_received": "2026-02-09T14:00:00Z",
+        "classified": "2026-02-09T14:08:00Z",
+        "data_flows_restricted": "2026-02-09T14:12:00Z",
+        "vendor_demand_sent": "2026-02-09T14:15:00Z",
+        "data_inventory_complete": "2026-02-09T14:30:00Z",
+        "legal_engaged": "2026-02-09T14:45:00Z",
+        "ciso_briefed": "2026-02-09T15:00:00Z",
+        "executive_briefed": "2026-02-09T15:30:00Z",
+        "vendor_responded": "2026-02-09T16:00:00Z",
+        "customer_notification_drafted": "2026-02-09T18:00:00Z",
+        "incident_closed": "2026-02-09T20:00:00Z"
+      },
+      "containment_time_seconds": 720,
+      "blast_radius_summary": "214 employee records (PII: name, SSN, DOB, salary) in affected database.",
+      "vendor_accountability_score": 55,
+      "lessons_learned": "Vendor disclosed 7 days late (SLA: 48 hours). Amend contract with penalty clause. Build state-specific notification templates.",
+      "status": "CLOSED"
+    }
+  ]
+}

@@ -1,0 +1,37 @@
+// Incident Timeline Builder
+// Reconstruct vendor activity timeline from Sentinel logs
+// Input: vendor domain or account identifier, time window
+
+let vendorDomain = "identityfirst.com";  // Replace with vendor domain
+let incidentWindow = 30d;
+//
+// Vendor sign-in activity
+let signins = SigninLogs
+| where TimeGenerated > ago(incidentWindow)
+| where UserPrincipalName has vendorDomain or UserPrincipalName has "EXT" 
+| project TimeGenerated, EventType = "SignIn", 
+    Detail = strcat(UserPrincipalName, " from ", IPAddress, " - ", ResultType),
+    UserPrincipalName, IPAddress, ResultType;
+//
+// Vendor audit activity
+let audits = AuditLogs
+| where TimeGenerated > ago(incidentWindow)
+| where InitiatedBy.user.userPrincipalName has vendorDomain
+| project TimeGenerated, EventType = "AuditAction",
+    Detail = strcat(OperationName, " on ", tostring(TargetResources[0].displayName)),
+    UserPrincipalName = tostring(InitiatedBy.user.userPrincipalName),
+    IPAddress = "", ResultType = "";
+//
+// Vendor Azure activity
+let azure = AzureActivity
+| where TimeGenerated > ago(incidentWindow)
+| where Caller has vendorDomain
+| project TimeGenerated, EventType = "AzureActivity",
+    Detail = strcat(OperationNameValue, " on ", Resource),
+    UserPrincipalName = Caller,
+    IPAddress = CallerIpAddress, ResultType = ActivityStatusValue;
+//
+// Combine and sort
+union signins, audits, azure
+| sort by TimeGenerated asc
+| project TimeGenerated, EventType, UserPrincipalName, Detail, IPAddress

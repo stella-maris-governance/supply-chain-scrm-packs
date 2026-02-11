@@ -1,0 +1,19 @@
+{
+  "_metadata": {
+    "pack": "supply-chain-incident-response",
+    "version": "1.0.0",
+    "description": "Structured vendor data breach response checklist with timeline tracking"
+  },
+  "response_steps": [
+    {"step": 1, "action": "Classify severity (Tier 1-4)", "owner": "Risk Owner", "sla": "1 hour", "timestamp": null, "status": "pending"},
+    {"step": 2, "action": "Restrict data flows to/from vendor", "owner": "Engineering", "sla": "2 hours", "timestamp": null, "status": "pending"},
+    {"step": 3, "action": "Send demand for information to vendor", "owner": "Risk Owner", "sla": "4 hours", "timestamp": null, "status": "pending"},
+    {"step": 4, "action": "Inventory all data shared with vendor", "owner": "Data Owner", "sla": "8 hours", "timestamp": null, "status": "pending"},
+    {"step": 5, "action": "Assess regulatory notification requirements", "owner": "Legal", "sla": "8 hours", "timestamp": null, "status": "pending"},
+    {"step": 6, "action": "Brief CISO", "owner": "Risk Owner", "sla": "Tier 1: 2hr, Tier 2: 8hr", "timestamp": null, "status": "pending"},
+    {"step": 7, "action": "Brief executive (Tier 1 only)", "owner": "Risk Owner", "sla": "24 hours", "timestamp": null, "status": "pending"},
+    {"step": 8, "action": "Prepare customer notification (if PII/PHI)", "owner": "Legal + Comms", "sla": "24 hours", "timestamp": null, "status": "pending"},
+    {"step": 9, "action": "Activate right-to-audit if vendor non-cooperative", "owner": "Legal", "sla": "48 hours", "timestamp": null, "status": "pending"},
+    {"step": 10, "action": "Post-incident review", "owner": "Risk Owner", "sla": "14 days", "timestamp": null, "status": "pending"}
+  ]
+}

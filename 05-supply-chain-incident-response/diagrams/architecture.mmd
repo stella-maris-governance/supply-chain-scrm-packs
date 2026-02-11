@@ -1,0 +1,53 @@
+graph TD
+    subgraph DETECT["Detection"]
+        VENDOR["Vendor Disclosure"]
+        SCORECARD["Pack 04 Alert"]
+        ITDR["ITDR Pack 09"]
+        NEWS["Public Disclosure"]
+    end
+
+    subgraph CLASSIFY["Classify"]
+        TIER["Severity Tier 1-4"]
+        PROXIMITY["Data Proximity"]
+    end
+
+    subgraph CONTAIN["Contain"]
+        PLAYBOOK_A["Credential Containment"]
+        PLAYBOOK_B["Data Breach Response"]
+        PLAYBOOK_C["Software Attack Response"]
+        PLAYBOOK_D["Outage Response"]
+    end
+
+    subgraph INVESTIGATE["Investigate"]
+        BLAST["Blast Radius -- 5 Pillars"]
+        TIMELINE["Timeline Construction"]
+        VENDOR_ENGAGE["Vendor Demand"]
+    end
+
+    subgraph RECOVER["Recover"]
+        RESTORE["Controlled Restoration"]
+        REVIEW["Post-Incident Review"]
+        SCORE_UPDATE["Scorecard Update"]
+        CONTRACT["Contract Amendment"]
+    end
+
+    VENDOR --> TIER
+    SCORECARD --> TIER
+    ITDR --> TIER
+    NEWS --> TIER
+    TIER --> PROXIMITY
+
+    PROXIMITY --> PLAYBOOK_A
+    PROXIMITY --> PLAYBOOK_B
+    PROXIMITY --> PLAYBOOK_C
+    PROXIMITY --> PLAYBOOK_D
+
+    PLAYBOOK_A --> BLAST
+    PLAYBOOK_B --> BLAST
+    BLAST --> TIMELINE
+    TIMELINE --> VENDOR_ENGAGE
+
+    VENDOR_ENGAGE --> RESTORE
+    RESTORE --> REVIEW
+    REVIEW --> SCORE_UPDATE
+    REVIEW --> CONTRACT
