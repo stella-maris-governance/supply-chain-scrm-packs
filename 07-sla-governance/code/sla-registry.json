@@ -1,0 +1,35 @@
+{
+  "_metadata": {
+    "pack": "sla-governance",
+    "version": "1.0.0",
+    "description": "SLA metric registry. Every measurable vendor commitment tracked.",
+    "last_updated": "2026-02-12"
+  },
+  "sla_metrics": [
+    {"vendor": "CloudPlatform Corp", "category": "Availability", "metric": "Monthly uptime", "target": "99.95%", "measurement": "Synthetic health check (5 min)", "monitoring": "Active", "penalty": "10% monthly fee per 0.1% below target"},
+    {"vendor": "CloudPlatform Corp", "category": "Support", "metric": "Sev-1 response", "target": "15 minutes", "measurement": "ITSM ticket timestamp", "monitoring": "Active", "penalty": "Escalation"},
+    {"vendor": "CloudPlatform Corp", "category": "Incident Response", "metric": "Incident notification", "target": "24 hours", "measurement": "Notification timestamp", "monitoring": "Active", "penalty": "Escalation"},
+    {"vendor": "CloudPlatform Corp", "category": "Availability", "metric": "RTO", "target": "2 hours", "measurement": "Vendor-reported", "monitoring": "Active", "penalty": "Service credit"},
+    {"vendor": "CloudPlatform Corp", "category": "Availability", "metric": "RPO", "target": "15 minutes", "measurement": "Vendor-reported", "monitoring": "Active", "penalty": "Service credit"},
+    {"vendor": "CloudPlatform Corp", "category": "Security", "metric": "Critical vuln remediation", "target": "48 hours", "measurement": "Vendor advisory timeline", "monitoring": "Active", "penalty": "Escalation"},
+    {"vendor": "CloudPlatform Corp", "category": "Data", "metric": "Data export", "target": "14 days", "measurement": "Request-to-delivery", "monitoring": "Manual", "penalty": "Escalation"},
+    {"vendor": "CloudPlatform Corp", "category": "Support", "metric": "Sev-2 response", "target": "1 hour", "measurement": "ITSM ticket timestamp", "monitoring": "Active", "penalty": "None"},
+    {"vendor": "IdentityFirst Inc", "category": "Availability", "metric": "Monthly uptime", "target": "99.9%", "measurement": "Status page + synthetic auth", "monitoring": "Active", "penalty": "5% monthly fee"},
+    {"vendor": "IdentityFirst Inc", "category": "Support", "metric": "Sev-1 response", "target": "30 minutes", "measurement": "ITSM ticket timestamp", "monitoring": "Active", "penalty": "Escalation"},
+    {"vendor": "IdentityFirst Inc", "category": "Incident Response", "metric": "Incident notification", "target": "48 hours", "measurement": "Notification timestamp", "monitoring": "Active", "penalty": "Escalation"},
+    {"vendor": "IdentityFirst Inc", "category": "Security", "metric": "Attestation renewal", "target": "Before expiry", "measurement": "Pack 02 tracker", "monitoring": "Active", "penalty": "Score impact"},
+    {"vendor": "IdentityFirst Inc", "category": "Support", "metric": "Sev-2 response", "target": "1 hour", "measurement": "ITSM ticket timestamp", "monitoring": "Active", "penalty": "None"},
+    {"vendor": "HR-Cloud SaaS", "category": "Availability", "metric": "Monthly uptime", "target": "99.9%", "measurement": "Status page monitoring", "monitoring": "Active", "penalty": "None — best effort"},
+    {"vendor": "HR-Cloud SaaS", "category": "Support", "metric": "Sev-1 response", "target": "1 hour", "measurement": "ITSM ticket timestamp", "monitoring": "Active", "penalty": "None — best effort"},
+    {"vendor": "HR-Cloud SaaS", "category": "Incident Response", "metric": "Breach notification", "target": "48 hours", "measurement": "Notification timestamp", "monitoring": "Active", "penalty": "None — best effort"},
+    {"vendor": "HR-Cloud SaaS", "category": "Data", "metric": "Data deletion post-termination", "target": "90 days", "measurement": "Request-to-confirmation", "monitoring": "Manual", "penalty": "None"},
+    {"vendor": "SecureDefend Tools", "category": "Availability", "metric": "Monthly uptime", "target": "99.95%", "measurement": "Agent heartbeat", "monitoring": "Active", "penalty": "Service credit"},
+    {"vendor": "SecureDefend Tools", "category": "Support", "metric": "Sev-1 response", "target": "15 minutes", "measurement": "ITSM ticket timestamp", "monitoring": "Active", "penalty": "Escalation"},
+    {"vendor": "SecureDefend Tools", "category": "Incident Response", "metric": "Incident notification", "target": "24 hours", "measurement": "Notification timestamp", "monitoring": "Active", "penalty": "Escalation"},
+    {"vendor": "SecureDefend Tools", "category": "Security", "metric": "Critical vuln patch", "target": "24 hours", "measurement": "Vendor advisory", "monitoring": "Active", "penalty": "Escalation"},
+    {"vendor": "SecureDefend Tools", "category": "Security", "metric": "SBOM refresh", "target": "Per major release", "measurement": "Pack 03 tracker", "monitoring": "Active", "penalty": "Score impact"},
+    {"vendor": "SecureDefend Tools", "category": "Support", "metric": "Sev-2 response", "target": "1 hour", "measurement": "ITSM ticket timestamp", "monitoring": "Active", "penalty": "None"},
+    {"vendor": "BackupVault Pro", "category": "Availability", "metric": "Monthly uptime", "target": "99.9%", "measurement": "Synthetic backup verification", "monitoring": "Active", "penalty": "None — no clause"},
+    {"vendor": "BackupVault Pro", "category": "Support", "metric": "Sev-1 response", "target": "4 hours", "measurement": "ITSM ticket timestamp", "monitoring": "Active", "penalty": "None — no clause"}
+  ]
+}

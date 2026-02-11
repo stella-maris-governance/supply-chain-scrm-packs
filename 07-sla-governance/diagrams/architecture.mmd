@@ -1,0 +1,44 @@
+graph TD
+    subgraph DEFINE["Define"]
+        CONTRACT["Contract SLA Extraction"]
+        REGISTRY["SLA Metric Registry"]
+    end
+
+    subgraph MONITOR["Monitor"]
+        UPTIME["Availability"]
+        SUPPORT["Support Tickets"]
+        INCIDENT["Incident Notification"]
+        SECURITY["Security SLAs"]
+    end
+
+    subgraph SCORE["Score & Detect"]
+        COMPLIANCE["Compliance Score"]
+        BREACH["Breach Detection"]
+        PATTERN["Pattern Analysis"]
+    end
+
+    subgraph ENFORCE["Enforce"]
+        CREDIT["Service Credits"]
+        ESCALATE["Vendor Escalation"]
+        PACK04["Feed to Pack 04"]
+        AMEND["Contract Amendment"]
+    end
+
+    CONTRACT --> REGISTRY
+    REGISTRY --> UPTIME
+    REGISTRY --> SUPPORT
+    REGISTRY --> INCIDENT
+    REGISTRY --> SECURITY
+
+    UPTIME --> BREACH
+    SUPPORT --> BREACH
+    INCIDENT --> BREACH
+    SECURITY --> BREACH
+
+    BREACH --> COMPLIANCE
+    BREACH --> PATTERN
+
+    COMPLIANCE --> PACK04
+    PATTERN --> ESCALATE
+    COMPLIANCE --> CREDIT
+    PATTERN --> AMEND

@@ -1,0 +1,96 @@
+{
+  "_metadata": {
+    "pack": "sla-governance",
+    "version": "1.0.0",
+    "description": "SLA breach register. Every missed commitment documented.",
+    "last_updated": "2026-02-12"
+  },
+  "breaches": [
+    {
+      "id": "SLA-B-001",
+      "vendor": "IdentityFirst Inc",
+      "metric": "Monthly uptime",
+      "category": "Availability",
+      "target": "99.9%",
+      "actual": "99.88%",
+      "breach_date": "2026-02-10",
+      "severity": "Moderate",
+      "root_cause": "45-min outage Jan 28 (maintenance) + 18-min degradation Feb 6",
+      "disposition": "Vendor notified, monitoring elevated",
+      "credit_requested": false,
+      "credit_amount": null
+    },
+    {
+      "id": "SLA-B-002",
+      "vendor": "IdentityFirst Inc",
+      "metric": "Maintenance notification",
+      "category": "Incident Response",
+      "target": "48 hours advance",
+      "actual": "0 hours (no notice)",
+      "breach_date": "2026-01-28",
+      "severity": "Moderate",
+      "root_cause": "Internal communication gap per vendor",
+      "disposition": "Vendor acknowledged, process correction committed",
+      "credit_requested": false,
+      "credit_amount": null
+    },
+    {
+      "id": "SLA-B-003",
+      "vendor": "HR-Cloud SaaS",
+      "metric": "Sev-2 response",
+      "category": "Support",
+      "target": "1 hour",
+      "actual": "2.5 hours",
+      "breach_date": "2026-02-04",
+      "severity": "Minor",
+      "root_cause": "Ticket routing delay",
+      "disposition": "Logged, first occurrence, monitoring",
+      "credit_requested": false,
+      "credit_amount": null
+    },
+    {
+      "id": "SLA-B-004",
+      "vendor": "BackupVault Pro",
+      "metric": "Monthly uptime",
+      "category": "Availability",
+      "target": "99.9%",
+      "actual": "99.72%",
+      "breach_date": "2026-02-10",
+      "severity": "Major",
+      "root_cause": "3 outages: Jan 22 (2hr), Feb 1 (45min), Feb 9 (30min)",
+      "disposition": "Vendor escalation initiated, corrective action requested",
+      "credit_requested": false,
+      "credit_amount": null,
+      "pattern_flag": true
+    },
+    {
+      "id": "SLA-B-005",
+      "vendor": "BackupVault Pro",
+      "metric": "Monthly uptime",
+      "category": "Availability",
+      "target": "99.9%",
+      "actual": "Pattern: 3 outages in 30 days",
+      "breach_date": "2026-02-10",
+      "severity": "Major",
+      "root_cause": "Recurring infrastructure instability",
+      "disposition": "Pattern flag, formal corrective action requested",
+      "credit_requested": false,
+      "credit_amount": null,
+      "pattern_flag": true
+    },
+    {
+      "id": "SLA-B-006",
+      "vendor": "BackupVault Pro",
+      "metric": "Service credits",
+      "category": "Availability",
+      "target": "Service credit clause",
+      "actual": "No clause in contract",
+      "breach_date": "2026-02-10",
+      "severity": "Governance gap",
+      "root_cause": "Contract negotiated without service credit terms",
+      "disposition": "Flagged for contract amendment at renewal",
+      "credit_requested": false,
+      "credit_amount": null
+    }
+  ]
+}

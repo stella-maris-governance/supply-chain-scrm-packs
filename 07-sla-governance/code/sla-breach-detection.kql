@@ -1,0 +1,28 @@
+// SLA Breach Detection
+// Automated check for SLA threshold violations
+
+let uptimeTarget = 99.9;
+let sev1ResponseMinutes = 15;
+//
+// Uptime breaches
+let uptimeBreaches = VendorMonitoring_CL
+| where TimeGenerated > ago(30d)
+| where EventType_s == "HealthCheck"
+| summarize
+    TotalChecks = count(),
+    DownChecks = countif(Status_s != "UP")
+    by VendorName_s
+| extend UptimePercent = round((1.0 - (DownChecks * 1.0 / TotalChecks)) * 100, 3)
+| where UptimePercent < uptimeTarget
+| project VendorName_s, UptimePercent, Target = uptimeTarget, BreachType = "Uptime";
+//
+// Support SLA breaches
+let supportBreaches = VendorTickets_CL
+| where TimeGenerated > ago(30d)
+| where Severity_s == "1"
+| extend ResponseMinutes = datetime_diff('minute', FirstResponse_t, Created_t)
+| where ResponseMinutes > sev1ResponseMinutes
+| project VendorName_s, TicketId_s, ResponseMinutes, Target = sev1ResponseMinutes, BreachType = "Sev1Response";
+//
+union uptimeBreaches, supportBreaches
+| sort by VendorName_s asc
