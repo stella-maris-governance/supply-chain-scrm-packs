@@ -1,0 +1,41 @@
+{
+  "_metadata": {
+    "pack": "vendor-offboarding",
+    "version": "1.0.0",
+    "description": "Data disposition tracker. Data return and deletion governance."
+  },
+  "dispositions": [
+    {
+      "vendor": "DemoVendor-Alpha",
+      "type": "TABLETOP",
+      "data_types": ["Application configuration", "Integration metadata"],
+      "data_classification": "Internal",
+      "return_requested": "2026-02-10",
+      "return_received": null,
+      "return_status": "PENDING",
+      "deletion_requested": "2026-02-10",
+      "deletion_attestation_received": null,
+      "deletion_status": "PENDING — 90-day SLA (due 2026-05-11)",
+      "tier2_entities": ["Tier2-SubProcessor-A"],
+      "tier2_deletion_requested": "2026-02-10",
+      "tier2_deletion_confirmed": null,
+      "tier2_status": "PENDING"
+    },
+    {
+      "vendor": "DemoVendor-Beta",
+      "type": "TABLETOP",
+      "data_types": ["Employee PII", "Payroll data"],
+      "data_classification": "Confidential",
+      "return_requested": "2026-02-11",
+      "return_received": null,
+      "return_status": "DEMANDED — vendor non-cooperative",
+      "deletion_requested": "2026-02-11",
+      "deletion_attestation_received": null,
+      "deletion_status": "DEMANDED — legal enforcement initiated",
+      "tier2_entities": ["PayrollEngine", "DataStore Plus"],
+      "tier2_deletion_requested": "2026-02-11",
+      "tier2_deletion_confirmed": null,
+      "tier2_status": "DEMANDED via Tier 1 — no direct governance"
+    }
+  ]
+}

@@ -1,0 +1,51 @@
+{
+  "_metadata": {
+    "pack": "vendor-offboarding",
+    "version": "1.0.0",
+    "description": "Offboarding register. Every vendor exit governed and verified."
+  },
+  "offboardings": [
+    {
+      "id": "OFF-001",
+      "type": "TABLETOP",
+      "vendor": "DemoVendor-Alpha",
+      "trigger": "Contract expiry (planned)",
+      "start_date": "2026-02-10",
+      "phase_status": {
+        "phase_1_access_revocation": "COMPLETE",
+        "phase_2_secret_rotation": "COMPLETE",
+        "phase_3_software_removal": "COMPLETE",
+        "phase_4_data_disposition": "PENDING — 90-day SLA",
+        "phase_5_verification_audit": "SCHEDULED — 2026-03-12"
+      },
+      "access_revocation_time_seconds": 38,
+      "secrets_rotated": 3,
+      "data_return_requested": true,
+      "deletion_attestation_received": false,
+      "tier2_deletion_requested": true,
+      "status": "IN PROGRESS — awaiting Phase 4 and 5"
+    },
+    {
+      "id": "OFF-002",
+      "type": "TABLETOP",
+      "vendor": "DemoVendor-Beta",
+      "trigger": "Termination for cause (security incident)",
+      "start_date": "2026-02-11",
+      "phase_status": {
+        "phase_1_access_revocation": "COMPLETE",
+        "phase_2_secret_rotation": "COMPLETE",
+        "phase_3_software_removal": "COMPLETE",
+        "phase_4_data_disposition": "ESCALATED — vendor non-cooperative",
+        "phase_5_verification_audit": "SCHEDULED — 2026-03-13"
+      },
+      "access_revocation_time_seconds": 93,
+      "secrets_rotated": 4,
+      "data_return_requested": true,
+      "deletion_attestation_received": false,
+      "tier2_deletion_requested": true,
+      "legal_engaged": true,
+      "right_to_audit_activated": true,
+      "status": "IN PROGRESS — legal enforcement, awaiting Phase 5"
+    }
+  ]
+}

@@ -1,0 +1,74 @@
+{
+  "_metadata": {
+    "pack": "vendor-offboarding",
+    "version": "1.0.0",
+    "description": "30-item offboarding checklist. Every access path accounted for."
+  },
+  "phases": [
+    {
+      "phase": 1,
+      "name": "Access Revocation",
+      "sla": "Day 0",
+      "items": [
+        {"id": 1, "action": "Disable all vendor guest accounts in Entra ID", "verification": "Entra audit log: AccountDisabled", "status": "pending"},
+        {"id": 2, "action": "Disable all vendor service principals", "verification": "Entra audit log: ServicePrincipalDisabled", "status": "pending"},
+        {"id": 3, "action": "Revoke all active sessions", "verification": "Graph API: revokeSignInSessions", "status": "pending"},
+        {"id": 4, "action": "Remove vendor from all Entra ID groups", "verification": "Group membership audit", "status": "pending"},
+        {"id": 5, "action": "Revoke all OAuth app consents", "verification": "Enterprise app consent audit", "status": "pending"},
+        {"id": 6, "action": "Remove vendor SSO integration", "verification": "SSO configuration audit", "status": "pending"},
+        {"id": 7, "action": "Terminate VPN tunnel", "verification": "Firewall rule audit", "status": "pending"},
+        {"id": 8, "action": "Disable SFTP/file transfer channels", "verification": "Transfer log verification", "status": "pending"},
+        {"id": 9, "action": "Revoke firewall rules for vendor IP ranges", "verification": "Firewall rule audit", "status": "pending"},
+        {"id": 10, "action": "Remove vendor from conditional access exclusions", "verification": "CA policy audit", "status": "pending"}
+      ]
+    },
+    {
+      "phase": 2,
+      "name": "Secret Rotation",
+      "sla": "Days 0-3",
+      "items": [
+        {"id": 11, "action": "Rotate all API keys vendor had access to", "verification": "Old key returns 401", "status": "pending"},
+        {"id": 12, "action": "Rotate all shared passwords/secrets", "verification": "Secret manager audit log", "status": "pending"},
+        {"id": 13, "action": "Rotate certificates used for vendor integration", "verification": "Thumbprint changed, old cert rejected", "status": "pending"},
+        {"id": 14, "action": "Rotate storage access keys", "verification": "Old key returns 403", "status": "pending"},
+        {"id": 15, "action": "Revoke and regenerate SAS tokens", "verification": "Old token returns 403", "status": "pending"}
+      ]
+    },
+    {
+      "phase": 3,
+      "name": "Software Removal",
+      "sla": "Days 0-7",
+      "items": [
+        {"id": 16, "action": "Uninstall vendor agents from endpoints", "verification": "Endpoint scan: agent absent", "status": "pending"},
+        {"id": 17, "action": "Remove vendor software from servers", "verification": "Server inventory scan", "status": "pending"},
+        {"id": 18, "action": "Remove vendor browser extensions", "verification": "Endpoint policy check", "status": "pending"},
+        {"id": 19, "action": "Remove vendor DNS records", "verification": "DNS zone audit", "status": "pending"},
+        {"id": 20, "action": "Remove vendor webhook/callback URLs", "verification": "Application config audit", "status": "pending"}
+      ]
+    },
+    {
+      "phase": 4,
+      "name": "Data Disposition",
+      "sla": "Days 0-90",
+      "items": [
+        {"id": 21, "action": "Request data return/export from vendor", "verification": "Data received and validated", "status": "pending"},
+        {"id": 22, "action": "Request vendor data deletion with attestation", "verification": "Signed attestation received", "status": "pending"},
+        {"id": 23, "action": "Request Tier 2 subprocessor data deletion", "verification": "Tier 2 deletion confirmation", "status": "pending"},
+        {"id": 24, "action": "Verify no residual data in vendor-accessible locations", "verification": "Storage/share scan", "status": "pending"},
+        {"id": 25, "action": "Archive offboarding record with all evidence", "verification": "Record complete", "status": "pending"}
+      ]
+    },
+    {
+      "phase": 5,
+      "name": "Verification Audit",
+      "sla": "Day 30",
+      "items": [
+        {"id": 26, "action": "Sentinel log review: vendor activity post-offboarding", "verification": "Zero vendor sign-in events", "status": "pending"},
+        {"id": 27, "action": "DNS resolution check: vendor records removed", "verification": "DNS clean", "status": "pending"},
+        {"id": 28, "action": "Network scan: vendor IP ranges removed", "verification": "Firewall rules clean", "status": "pending"},
+        {"id": 29, "action": "Application audit: vendor integrations removed", "verification": "Integration inventory clean", "status": "pending"},
+        {"id": 30, "action": "Close offboarding record", "verification": "All 29 items verified", "status": "pending"}
+      ]
+    }
+  ]
+}

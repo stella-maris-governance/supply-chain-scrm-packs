@@ -1,0 +1,35 @@
+// Post-Offboarding Verification Audit
+// 30-day scan for any vendor artifacts or activity after access revocation
+// Run 30 days after offboarding completion
+
+let vendorDomain = "vendor.com";  // Replace with offboarded vendor domain
+let offboardingDate = datetime(2026-02-10);  // Replace with offboarding date
+let auditWindow = 30d;
+//
+// Vendor account sign-in attempts (should all fail)
+let signins = SigninLogs
+| where TimeGenerated between (offboardingDate .. (offboardingDate + auditWindow))
+| where UserPrincipalName has vendorDomain or UserPrincipalName has "EXT"
+| project TimeGenerated, EventType = "SignIn",
+    Detail = strcat(UserPrincipalName, " — Result: ", ResultType, " — ", ResultDescription),
+    Severity = iff(ResultType == "0", "CRITICAL — Successful login post-offboarding", "Expected — blocked");
+//
+// Vendor IP range activity
+let networkActivity = SigninLogs
+| where TimeGenerated between (offboardingDate .. (offboardingDate + auditWindow))
+| where IPAddress has_any ("vendor-ip-range-1", "vendor-ip-range-2")  // Replace with vendor IPs
+| project TimeGenerated, EventType = "VendorIP",
+    Detail = strcat("Sign-in from vendor IP: ", IPAddress, " by ", UserPrincipalName),
+    Severity = "INVESTIGATE";
+//
+// Vendor-related audit events
+let auditEvents = AuditLogs
+| where TimeGenerated between (offboardingDate .. (offboardingDate + auditWindow))
+| where TargetResources has vendorDomain or InitiatedBy has vendorDomain
+| project TimeGenerated, EventType = "AuditEvent",
+    Detail = strcat(OperationName, " — ", tostring(TargetResources[0].displayName)),
+    Severity = "INVESTIGATE";
+//
+union signins, networkActivity, auditEvents
+| sort by Severity desc, TimeGenerated asc
+| project TimeGenerated, EventType, Severity, Detail

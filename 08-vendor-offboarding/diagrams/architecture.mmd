@@ -1,0 +1,63 @@
+graph TD
+    subgraph TRIGGER["Trigger"]
+        EXPIRY["Contract Expiry"]
+        REPLACE["Vendor Replacement"]
+        CAUSE["Termination for Cause"]
+    end
+
+    subgraph PHASE1["Phase 1: Access Revocation"]
+        DISABLE["Disable Accounts"]
+        REVOKE["Revoke Sessions"]
+        GROUPS["Clear Groups"]
+        OAUTH["Revoke Consents"]
+    end
+
+    subgraph PHASE2["Phase 2: Secret Rotation"]
+        API_KEYS["API Keys"]
+        CERTS["Certificates"]
+        SAS["SAS Tokens"]
+    end
+
+    subgraph PHASE3["Phase 3: Software"]
+        AGENTS["Remove Agents"]
+        DNS["Remove DNS"]
+        WEBHOOKS["Remove Webhooks"]
+    end
+
+    subgraph PHASE4["Phase 4: Data"]
+        RETURN["Data Return"]
+        DELETE["Deletion Request"]
+        TIER2["Tier 2 Deletion"]
+        ATTEST["Attestation"]
+    end
+
+    subgraph PHASE5["Phase 5: Verify"]
+        SENTINEL["30-day Log Review"]
+        SCAN["Environment Scan"]
+        CLOSE["Record Closed"]
+    end
+
+    EXPIRY --> DISABLE
+    REPLACE --> DISABLE
+    CAUSE --> DISABLE
+
+    DISABLE --> REVOKE
+    REVOKE --> GROUPS
+    GROUPS --> OAUTH
+
+    OAUTH --> API_KEYS
+    API_KEYS --> CERTS
+    CERTS --> SAS
+
+    SAS --> AGENTS
+    AGENTS --> DNS
+    DNS --> WEBHOOKS
+
+    WEBHOOKS --> RETURN
+    RETURN --> DELETE
+    DELETE --> TIER2
+    TIER2 --> ATTEST
+
+    ATTEST --> SENTINEL
+    SENTINEL --> SCAN
+    SCAN --> CLOSE
