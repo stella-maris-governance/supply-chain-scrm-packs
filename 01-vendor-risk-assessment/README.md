@@ -177,13 +177,15 @@ Six domains. Each weighted by impact. Total score 0-100.
 
 ### `screenshots/` — Evidence
 
-| # | What It Shows |
-|---|--------------|
-| 01 | Vendor risk register: all vendors with tier, score, status |
-| 02 | Intake form: completed example for Critical vendor |
-| 03 | Risk scoring: domain breakdown for a High vendor |
-| 04 | Approval workflow: conditional accept with compensating controls |
-| 05 | Re-assessment dashboard: upcoming reviews by tier |
+This pack uses **deterministic engine outputs** as primary evidence rather than portal screenshots.
+
+| Evidence Type | Format | Purpose |
+|--------------|--------|---------|
+| Engine output (`.txt`) | Script terminal output | Primary — proves logic and methodology |
+| Report output (`.md`) | Formatted engine report | Primary — proves analysis and findings |
+| Portal screenshot (`.png`) | Azure portal capture | Secondary — added when running against live environment |
+
+> See `EVIDENCE-README.md` in the screenshots directory for the full evidence approach.
 
 ---
 

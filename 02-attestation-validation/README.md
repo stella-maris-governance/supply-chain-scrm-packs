@@ -202,13 +202,15 @@ graph TD
 
 ### `screenshots/` — Evidence
 
-| # | What It Shows |
-|---|--------------|
-| 01 | Attestation tracker: all vendors with report status and expiry |
-| 02 | SOC 2 validation: completed 15-point checklist with findings |
-| 03 | Gap analysis: vendor missing required attestation by tier |
-| 04 | Expiry dashboard: upcoming attestation renewals |
-| 05 | CUEC mapping: vendor expectations vs your control status |
+This pack uses **deterministic engine outputs** as primary evidence rather than portal screenshots.
+
+| Evidence Type | Format | Purpose |
+|--------------|--------|---------|
+| Engine output (`.txt`) | Script terminal output | Primary — proves logic and methodology |
+| Report output (`.md`) | Formatted engine report | Primary — proves analysis and findings |
+| Portal screenshot (`.png`) | Azure portal capture | Secondary — added when running against live environment |
+
+> See `EVIDENCE-README.md` in the screenshots directory for the full evidence approach.
 
 ---
 

@@ -196,13 +196,15 @@ Jurisdictions flagged for:
 
 ### `screenshots/` — Evidence
 
-| # | What It Shows |
-|---|--------------|
-| 01 | Tier 2 register: all known subprocessors with vendor, jurisdiction, attestation |
-| 02 | Supply chain map: dependency visualization for a Critical vendor |
-| 03 | Concentration risk: shared Tier 2 dependency flagged |
-| 04 | Jurisdiction tracker: data flow through flagged jurisdictions |
-| 05 | Traceability gap: Critical vendor with incomplete Tier 2 data |
+This pack uses **deterministic engine outputs** as primary evidence rather than portal screenshots.
+
+| Evidence Type | Format | Purpose |
+|--------------|--------|---------|
+| Engine output (`.txt`) | Script terminal output | Primary — proves logic and methodology |
+| Report output (`.md`) | Formatted engine report | Primary — proves analysis and findings |
+| Portal screenshot (`.png`) | Azure portal capture | Secondary — added when running against live environment |
+
+> See `EVIDENCE-README.md` in the screenshots directory for the full evidence approach.
 
 ---
 

@@ -276,13 +276,15 @@ During and after a supply chain incident, the vendor is scored on:
 
 ### `screenshots/` — Evidence
 
-| # | What It Shows |
-|---|--------------|
-| 01 | Incident register with timeline and severity |
-| 02 | Containment playbook execution: vendor accounts disabled |
-| 03 | Blast radius assessment output |
-| 04 | Vendor activity timeline reconstructed from Sentinel |
-| 05 | Post-incident review with scorecard update |
+This pack uses **deterministic engine outputs** as primary evidence rather than portal screenshots.
+
+| Evidence Type | Format | Purpose |
+|--------------|--------|---------|
+| Engine output (`.txt`) | Script terminal output | Primary — proves logic and methodology |
+| Report output (`.md`) | Formatted engine report | Primary — proves analysis and findings |
+| Portal screenshot (`.png`) | Azure portal capture | Secondary — added when running against live environment |
+
+> See `EVIDENCE-README.md` in the screenshots directory for the full evidence approach.
 
 ---
 

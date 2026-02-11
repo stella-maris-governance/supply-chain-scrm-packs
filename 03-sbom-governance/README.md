@@ -201,13 +201,15 @@ When an SBOM is ingested, every component is checked against:
 
 ### `screenshots/` — Evidence
 
-| # | What It Shows |
-|---|--------------|
-| 01 | SBOM register: all applications/vendors with SBOM status |
-| 02 | NTIA validation: pass/fail for vendor-provided SBOM |
-| 03 | Vulnerability correlation: components with active CVEs |
-| 04 | Dependency tree: transitive dependency depth for critical application |
-| 05 | License compliance: component license classification summary |
+This pack uses **deterministic engine outputs** as primary evidence rather than portal screenshots.
+
+| Evidence Type | Format | Purpose |
+|--------------|--------|---------|
+| Engine output (`.txt`) | Script terminal output | Primary — proves logic and methodology |
+| Report output (`.md`) | Formatted engine report | Primary — proves analysis and findings |
+| Portal screenshot (`.png`) | Azure portal capture | Secondary — added when running against live environment |
+
+> See `EVIDENCE-README.md` in the screenshots directory for the full evidence approach.
 
 ---
 

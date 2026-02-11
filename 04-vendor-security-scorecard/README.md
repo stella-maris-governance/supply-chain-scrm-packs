@@ -227,13 +227,15 @@ Scorecard tracks 90-day rolling trend for every vendor. Trend indicators:
 
 ### `screenshots/` — Evidence
 
-| # | What It Shows |
-|---|--------------|
-| 01 | Vendor scorecard dashboard: all vendors with composite scores and trends |
-| 02 | Signal detail: external posture check for a Critical vendor |
-| 03 | Trend analysis: 90-day rolling trend with category breakdown |
-| 04 | Alert firing: threshold breach notification |
-| 05 | Cross-pillar feed: Pack 02/03 data flowing into scorecard |
+This pack uses **deterministic engine outputs** as primary evidence rather than portal screenshots.
+
+| Evidence Type | Format | Purpose |
+|--------------|--------|---------|
+| Engine output (`.txt`) | Script terminal output | Primary — proves logic and methodology |
+| Report output (`.md`) | Formatted engine report | Primary — proves analysis and findings |
+| Portal screenshot (`.png`) | Azure portal capture | Secondary — added when running against live environment |
+
+> See `EVIDENCE-README.md` in the screenshots directory for the full evidence approach.
 
 ---
 

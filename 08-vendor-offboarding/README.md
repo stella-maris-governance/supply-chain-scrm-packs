@@ -236,13 +236,15 @@ graph TD
 
 ### `screenshots/` — Evidence
 
-| # | What It Shows |
-|---|--------------|
-| 01 | Offboarding register: vendor with phase completion status |
-| 02 | Access revocation: Entra audit log showing accounts disabled |
-| 03 | Post-offboarding audit: 30-day Sentinel scan showing zero vendor activity |
-| 04 | Data disposition tracker: deletion attestation received |
-| 05 | Secret rotation verification: old credentials return 401 |
+This pack uses **deterministic engine outputs** as primary evidence rather than portal screenshots.
+
+| Evidence Type | Format | Purpose |
+|--------------|--------|---------|
+| Engine output (`.txt`) | Script terminal output | Primary — proves logic and methodology |
+| Report output (`.md`) | Formatted engine report | Primary — proves analysis and findings |
+| Portal screenshot (`.png`) | Azure portal capture | Secondary — added when running against live environment |
+
+> See `EVIDENCE-README.md` in the screenshots directory for the full evidence approach.
 
 ---
 
