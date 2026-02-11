@@ -1,0 +1,38 @@
+{
+  "_metadata": {
+    "pack": "tier2-tier3-traceability",
+    "version": "1.0.0",
+    "description": "Jurisdiction classification and regulatory flag mapping"
+  },
+  "jurisdiction_flags": {
+    "GDPR_ADEQUATE": {
+      "description": "EU Commission adequacy decision in place",
+      "countries": ["US (DPF certified)", "UK", "Japan", "South Korea", "Canada", "Israel", "Switzerland", "New Zealand", "Argentina", "Uruguay"],
+      "impact": "Data transfer permitted under adequacy framework"
+    },
+    "GDPR_NOT_ADEQUATE": {
+      "description": "No adequacy decision — requires SCCs or binding corporate rules",
+      "impact": "Additional safeguards required for data transfer"
+    },
+    "ITAR_RESTRICTED": {
+      "description": "ITAR-restricted country — controlled technical data may not be shared",
+      "countries": ["CN", "RU", "IR", "KP", "SY", "CU", "VE"],
+      "impact": "Controlled data must not be processed or stored in these jurisdictions"
+    },
+    "DATA_SOVEREIGNTY": {
+      "description": "Country has data localization requirements",
+      "countries": ["CN", "RU", "IN (partial)", "ID (partial)", "VN"],
+      "impact": "Data may be required to remain in-country"
+    }
+  },
+  "current_tier2_jurisdictions": [
+    {"entity": "CloudHost Alpha", "jurisdiction": "US-EAST", "flags": []},
+    {"entity": "CertAuth Global", "jurisdiction": "Netherlands", "flags": ["GDPR_ADEQUATE"]},
+    {"entity": "PayrollEngine", "jurisdiction": "US", "flags": []},
+    {"entity": "DataStore Plus", "jurisdiction": "Ireland", "flags": ["GDPR_ADEQUATE"]},
+    {"entity": "AnalyticsHub", "jurisdiction": "US", "flags": []},
+    {"entity": "KeyVault Solutions", "jurisdiction": "US", "flags": []},
+    {"entity": "StorageGrid Inc", "jurisdiction": "US-WEST (inferred)", "flags": []},
+    {"entity": "TransitNet", "jurisdiction": "US (inferred)", "flags": []}
+  ]
+}

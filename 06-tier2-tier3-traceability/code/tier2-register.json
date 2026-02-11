@@ -1,0 +1,116 @@
+{
+  "_metadata": {
+    "pack": "tier2-tier3-traceability",
+    "version": "1.0.0",
+    "description": "Tier 2 subprocessor register. Who is behind your vendors.",
+    "last_updated": "2026-02-12"
+  },
+  "tier2_entities": [
+    {
+      "entity_name": "CloudHost Alpha",
+      "tier1_vendor": "IdentityFirst Inc",
+      "service": "Infrastructure hosting",
+      "data_flow": "Identity data processed on hosted infrastructure",
+      "jurisdiction_incorporation": "US",
+      "jurisdiction_processing": "US-EAST",
+      "jurisdiction_storage": "US-EAST",
+      "attestation": "NONE VISIBLE",
+      "right_to_audit_flows": false,
+      "source": "DPA subprocessor list",
+      "confidence": "Medium",
+      "tier3_dependency": "AWS US-EAST (inferred)"
+    },
+    {
+      "entity_name": "CertAuth Global",
+      "tier1_vendor": "IdentityFirst Inc",
+      "service": "Certificate authority / TLS certificates",
+      "data_flow": "Certificate services only — no PII",
+      "jurisdiction_incorporation": "Netherlands",
+      "jurisdiction_processing": "Netherlands",
+      "jurisdiction_storage": "Netherlands",
+      "attestation": "WebTrust accredited",
+      "right_to_audit_flows": false,
+      "source": "DPA subprocessor list",
+      "confidence": "High"
+    },
+    {
+      "entity_name": "PayrollEngine",
+      "tier1_vendor": "HR-Cloud SaaS",
+      "service": "Payroll calculation",
+      "data_flow": "Employee PII for payroll processing",
+      "jurisdiction_incorporation": "US",
+      "jurisdiction_processing": "US",
+      "jurisdiction_storage": "US",
+      "attestation": "SOC 2 Type II (vendor-represented, not independently verified)",
+      "right_to_audit_flows": false,
+      "source": "DPA subprocessor list",
+      "confidence": "Medium"
+    },
+    {
+      "entity_name": "DataStore Plus",
+      "tier1_vendor": "HR-Cloud SaaS",
+      "service": "Database hosting",
+      "data_flow": "Employee PII stored in hosted database",
+      "jurisdiction_incorporation": "Ireland",
+      "jurisdiction_processing": "Ireland",
+      "jurisdiction_storage": "Ireland",
+      "attestation": "ISO 27001 (vendor-represented, not independently verified)",
+      "right_to_audit_flows": false,
+      "source": "DPA subprocessor list",
+      "confidence": "Medium",
+      "jurisdiction_flags": ["GDPR_ADEQUATE"]
+    },
+    {
+      "entity_name": "AnalyticsHub",
+      "tier1_vendor": "HR-Cloud SaaS",
+      "service": "Usage analytics",
+      "data_flow": "Anonymized usage data (verify anonymization)",
+      "jurisdiction_incorporation": "US",
+      "jurisdiction_processing": "US",
+      "jurisdiction_storage": "US",
+      "attestation": "NONE LISTED",
+      "right_to_audit_flows": false,
+      "source": "DPA subprocessor list",
+      "confidence": "Medium"
+    },
+    {
+      "entity_name": "KeyVault Solutions",
+      "tier1_vendor": "BackupVault Pro",
+      "service": "Encryption key management",
+      "data_flow": "Manages encryption keys for backup data",
+      "jurisdiction_incorporation": "US",
+      "jurisdiction_processing": "US",
+      "jurisdiction_storage": "US",
+      "attestation": "NONE VISIBLE — carved out of BackupVault SOC 2",
+      "right_to_audit_flows": false,
+      "source": "SOC 2 carve-out (Pack 02)",
+      "confidence": "High"
+    },
+    {
+      "entity_name": "StorageGrid Inc",
+      "tier1_vendor": "BackupVault Pro",
+      "service": "Object storage infrastructure",
+      "data_flow": "Backup data stored on object storage",
+      "jurisdiction_incorporation": "US (inferred)",
+      "jurisdiction_processing": "US-WEST (inferred)",
+      "jurisdiction_storage": "US-WEST (inferred)",
+      "attestation": "NONE VISIBLE",
+      "right_to_audit_flows": false,
+      "source": "Public documentation",
+      "confidence": "Low"
+    },
+    {
+      "entity_name": "TransitNet",
+      "tier1_vendor": "BackupVault Pro",
+      "service": "Network transit / connectivity",
+      "data_flow": "Backup data in transit",
+      "jurisdiction_incorporation": "US (inferred)",
+      "jurisdiction_processing": "US (inferred)",
+      "jurisdiction_storage": "N/A — transit only",
+      "attestation": "NONE VISIBLE",
+      "right_to_audit_flows": false,
+      "source": "Public documentation",
+      "confidence": "Low"
+    }
+  ]
+}

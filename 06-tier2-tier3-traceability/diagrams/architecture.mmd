@@ -1,0 +1,43 @@
+graph TD
+    subgraph COLLECT["Data Collection"]
+        SOC2["SOC 2 Carve-outs -- Pack 02"]
+        DPA["DPA Subprocessor Lists"]
+        QUEST["Subprocessor Questionnaire"]
+        PUBLIC["Public Documentation"]
+    end
+
+    subgraph REGISTER["Tier 2 Register"]
+        ENTITIES["Entity Identification"]
+        JURISDICTION["Jurisdiction Tagging"]
+        ATTESTATION["Attestation Status"]
+        CONFIDENCE["Confidence Level"]
+    end
+
+    subgraph ANALYSIS["Analysis"]
+        CONCENTRATION["Concentration Risk Scan"]
+        MAP["Supply Chain Map"]
+        GAPS["Traceability Gap Scan"]
+    end
+
+    subgraph OUTPUT["Governance"]
+        PACK01_FEED["Feed to Pack 01 Scoring"]
+        PACK05_FEED["Feed to Pack 05 Blast Radius"]
+        AWARENESS["Risk Awareness -- ungovernable Tier 3"]
+    end
+
+    SOC2 --> ENTITIES
+    DPA --> ENTITIES
+    QUEST --> ENTITIES
+    PUBLIC --> ENTITIES
+
+    ENTITIES --> JURISDICTION
+    ENTITIES --> ATTESTATION
+    ENTITIES --> CONFIDENCE
+
+    JURISDICTION --> CONCENTRATION
+    ATTESTATION --> GAPS
+    CONFIDENCE --> MAP
+
+    CONCENTRATION --> PACK05_FEED
+    MAP --> AWARENESS
+    GAPS --> PACK01_FEED

@@ -1,0 +1,32 @@
+// Tier 2 Traceability Gap Scan
+// Identifies Critical/High vendors missing Tier 2 visibility
+
+let today = now();
+//
+VendorGovernance_CL
+| where EventType_s == "VendorRegistered"
+| where Tier_s in ("Critical", "High")
+| join kind=leftouter (
+    Tier2Governance_CL
+    | where EventType_s == "Tier2EntityLogged"
+    | summarize Tier2Count = count(), AttestationCount = countif(Attestation_s !has "NONE") by Tier1Vendor_s
+  ) on $left.VendorName_s == $right.Tier1Vendor_s
+| extend Tier2Count = coalesce(Tier2Count, 0)
+| extend AttestationCount = coalesce(AttestationCount, 0)
+| extend QuestionnaireResponse = coalesce(QuestionnaireResponse_s, "NONE")
+| extend GapLevel = case(
+    Tier2Count == 0 and QuestionnaireResponse == "NONE", "NO VISIBILITY",
+    Tier2Count == 0 and QuestionnaireResponse == "CONFIRMED_NONE", "CLEAR — self-operated",
+    Tier2Count > 0 and AttestationCount == 0, "ENTITIES KNOWN — NO ATTESTATION",
+    Tier2Count > 0 and AttestationCount < Tier2Count, "PARTIAL ATTESTATION",
+    "ADEQUATE"
+  )
+| where GapLevel != "ADEQUATE" and GapLevel != "CLEAR — self-operated"
+| project
+    VendorName_s,
+    Tier_s,
+    Tier2Count,
+    AttestationCount,
+    QuestionnaireResponse,
+    GapLevel
+| sort by Tier_s asc, GapLevel asc
