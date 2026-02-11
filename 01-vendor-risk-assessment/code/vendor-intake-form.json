@@ -1,0 +1,43 @@
+{
+  "_metadata": {
+    "pack": "vendor-risk-assessment",
+    "version": "1.0.0",
+    "description": "Structured vendor intake form. All fields mandatory."
+  },
+  "intake_fields": {
+    "vendor_name": {"type": "string", "required": true},
+    "vendor_website": {"type": "string", "required": true},
+    "business_unit_sponsor": {"type": "string", "required": true},
+    "business_justification": {"type": "string", "required": true},
+    "data_classification": {
+      "type": "enum",
+      "required": true,
+      "options": ["Public", "Internal", "Confidential", "Restricted"]
+    },
+    "data_types_accessed": {
+      "type": "multi-select",
+      "required": true,
+      "options": ["PII", "PHI", "Financial", "Intellectual Property", "Credentials", "Infrastructure Config", "None"]
+    },
+    "integration_type": {
+      "type": "multi-select",
+      "required": true,
+      "options": ["API", "SSO/SAML", "File Transfer", "VPN/Network", "Agent Installed", "Browser Only", "None"]
+    },
+    "business_criticality": {
+      "type": "enum",
+      "required": true,
+      "options": ["Mission Critical", "Important", "Standard", "Convenience"]
+    },
+    "estimated_contract_value": {"type": "currency", "required": false},
+    "contract_term_months": {"type": "integer", "required": true},
+    "existing_vendor": {"type": "boolean", "required": true},
+    "replaces_existing_vendor": {"type": "string", "required": false}
+  },
+  "auto_tier_matrix": {
+    "Restricted": {"Mission Critical": "Critical", "Important": "Critical", "Standard": "High", "Convenience": "High"},
+    "Confidential": {"Mission Critical": "Critical", "Important": "High", "Standard": "High", "Convenience": "Medium"},
+    "Internal": {"Mission Critical": "High", "Important": "Medium", "Standard": "Medium", "Convenience": "Low"},
+    "Public": {"Mission Critical": "Medium", "Important": "Low", "Standard": "Low", "Convenience": "Low"}
+  }
+}

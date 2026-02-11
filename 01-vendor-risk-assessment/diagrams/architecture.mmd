@@ -1,0 +1,53 @@
+graph TD
+    subgraph INTAKE["Vendor Intake"]
+        REQUEST["Business unit request"]
+        FORM["Structured intake form"]
+        AUTOTIER["Auto-tier classification"]
+    end
+
+    subgraph ASSESS["Assessment"]
+        SECURITY["Security Posture 30%"]
+        COMPLIANCE["Compliance Status 20%"]
+        DATA["Data Handling 20%"]
+        FINANCIAL["Financial Stability 10%"]
+        INCIDENT["Incident History 10%"]
+        SUBCONTRACT["Subcontractor Risk 10%"]
+    end
+
+    subgraph ENGINE["Scoring Engine"]
+        CALCULATE["calculate_risk.py"]
+        BURNRATE["Burn rate flag"]
+        THRESHOLD["Accept / Conditional / Reject"]
+    end
+
+    subgraph GOVERN["Governance"]
+        APPROVE["Tiered approval workflow"]
+        REGISTER["Vendor risk register"]
+        VALIDATE["schema_validation.py"]
+        REASSESS["Re-assessment calendar"]
+        LOGANALYTICS["Log Analytics audit trail"]
+    end
+
+    REQUEST --> FORM --> AUTOTIER
+    AUTOTIER --> SECURITY
+    AUTOTIER --> COMPLIANCE
+    AUTOTIER --> DATA
+    AUTOTIER --> FINANCIAL
+    AUTOTIER --> INCIDENT
+    AUTOTIER --> SUBCONTRACT
+
+    SECURITY --> CALCULATE
+    COMPLIANCE --> CALCULATE
+    DATA --> CALCULATE
+    FINANCIAL --> CALCULATE
+    FINANCIAL --> BURNRATE
+    INCIDENT --> CALCULATE
+    SUBCONTRACT --> CALCULATE
+
+    CALCULATE --> THRESHOLD
+    BURNRATE --> THRESHOLD
+    THRESHOLD --> APPROVE
+    APPROVE --> REGISTER
+    REGISTER --> VALIDATE
+    REGISTER --> REASSESS
+    REGISTER --> LOGANALYTICS

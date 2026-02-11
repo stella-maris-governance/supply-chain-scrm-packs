@@ -1,0 +1,26 @@
+// Vendor Re-Assessment Scanner
+// Run weekly: identifies vendors approaching or past re-assessment due date
+// Reads from vendor governance events in Log Analytics
+
+let warningDays = 30;
+let today = now();
+//
+VendorGovernance_CL
+| where EventType_s == "ReassessmentScheduled"
+| summarize LatestEntry = arg_max(TimeGenerated, *) by VendorName_s
+| extend ReassessmentDate = todatetime(NextReassessment_s)
+| extend DaysUntilDue = datetime_diff('day', ReassessmentDate, today)
+| extend Status = case(
+    DaysUntilDue < 0, "OVERDUE",
+    DaysUntilDue <= warningDays, "DUE SOON",
+    "On Schedule"
+  )
+| where Status in ("OVERDUE", "DUE SOON")
+| project
+    VendorName_s,
+    Tier_s,
+    ReassessmentDate,
+    DaysUntilDue,
+    Status,
+    LastAssessmentScore_d
+| sort by DaysUntilDue asc

@@ -1,0 +1,47 @@
+{
+  "_metadata": {
+    "pack": "vendor-risk-assessment",
+    "version": "1.0.0",
+    "description": "Vendor risk register. Validated weekly by schema_validation.py.",
+    "last_validated": "2026-02-10",
+    "schema_status": "PASS"
+  },
+  "vendors": [
+    {
+      "vendor_name": "CloudPlatform Corp",
+      "tier": "Critical",
+      "risk_score": 84,
+      "approval_status": "Approved",
+      "approval_date": "2026-01-20",
+      "approver": "R. Myers (CISO) + J. Smith (Legal)",
+      "next_reassessment_date": "2026-04-20",
+      "compensating_controls": "",
+      "burn_rate_flagged": false,
+      "notes": "Full 6-domain assessment. Tier 2 subcontractors documented."
+    },
+    {
+      "vendor_name": "IdentityFirst Inc",
+      "tier": "Critical",
+      "risk_score": 77,
+      "approval_status": "Conditional",
+      "approval_date": "2026-01-22",
+      "approver": "R. Myers (CISO) + J. Smith (Legal)",
+      "next_reassessment_date": "2026-04-22",
+      "compensating_controls": "Quarterly attestation refresh required. Right-to-audit clause in contract. Tier 2 visibility gap documented.",
+      "burn_rate_flagged": true,
+      "notes": "Strong security, limited Tier 2 visibility. Burn rate 40% YoY — monitoring."
+    },
+    {
+      "vendor_name": "HR-Cloud SaaS",
+      "tier": "High",
+      "risk_score": 72,
+      "approval_status": "Conditional",
+      "approval_date": "2026-01-25",
+      "approver": "R. Myers (Security Lead)",
+      "next_reassessment_date": "2026-07-25",
+      "compensating_controls": "Encryption at rest planned Q2. No subcontractor data provided — elevated monitoring.",
+      "burn_rate_flagged": false,
+      "notes": "PII processor. Encryption gap + subcontractor gap documented."
+    }
+  ]
+}

@@ -1,0 +1,41 @@
+{
+  "_metadata": {
+    "pack": "vendor-risk-assessment",
+    "version": "1.0.0",
+    "description": "6-domain weighted risk scoring model for vendor assessments"
+  },
+  "scoring_logic": {
+    "Security Posture": {
+      "weight": 0.30,
+      "metrics": ["MFA_Enforced", "Encryption_AtRest", "Encryption_InTransit", "VulnMgmt_Cadence", "PenTest_Current", "IR_Plan_Documented"]
+    },
+    "Compliance Status": {
+      "weight": 0.20,
+      "metrics": ["SOC2_TypeII", "ISO_27001", "FedRAMP", "CMMC", "Other_Certifications"]
+    },
+    "Data Handling": {
+      "weight": 0.20,
+      "metrics": ["Data_Classification_Documented", "Encryption_Standards", "Retention_Policy", "Disposal_Procedure", "Jurisdiction_Risk"]
+    },
+    "Financial Stability": {
+      "weight": 0.10,
+      "metrics": ["Solvency_Months", "Operational_Years", "Revenue_Trend"],
+      "burn_rate_threshold": 0.30,
+      "burn_rate_flag_description": "Flag if annual burn rate exceeds 30%. A company with 12 months cash but 50% burn is on a clock."
+    },
+    "Incident History": {
+      "weight": 0.10,
+      "metrics": ["Breach_Last_3Years", "Response_Quality", "Disclosure_Transparency", "Repeat_Pattern"]
+    },
+    "Subcontractor Risk": {
+      "weight": 0.10,
+      "metrics": ["Tier2_Visibility", "Subcontractor_Agreements", "Data_Processing_Locations", "Right_To_Audit"]
+    }
+  },
+  "thresholds": {
+    "accept": {"min": 80, "action": "Approve with standard monitoring"},
+    "conditional": {"min": 60, "action": "Approve with compensating controls and elevated monitoring"},
+    "elevated_review": {"min": 40, "action": "CISO review required. Compensating controls mandatory."},
+    "reject": {"min": 0, "action": "Do not proceed. Executive risk acceptance required if business-critical."}
+  }
+}
