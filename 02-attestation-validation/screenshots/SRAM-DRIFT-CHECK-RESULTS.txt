@@ -1,0 +1,77 @@
+========================================================================
+  STELLA MARIS GOVERNANCE — SRAM DRIFT CHECK v1.0.0
+  Phase 1: Attestation Expiry Detection
+========================================================================
+
+  Scan Date:  2026-02-11 16:58 UTC
+  Vendors Loaded: 5
+  Attestations Checked: 7
+
+────────────────────────────────────────────────────────────────────────
+  DRIFT FINDINGS
+────────────────────────────────────────────────────────────────────────
+
+  🔴 EXPIRED ATTESTATIONS: 1
+
+     BackupVault Pro — SOC 2 Type II
+     Issued:   2024-08-01
+     Expired:  2025-08-01
+     Status:   EXPIRED (195 days ago)
+     Tier:     2
+     Action:   Request renewed SOC 2 report immediately
+               or escalate REJECT disposition to AO
+
+     Context:  This vendor has a 7-pack REJECT trajectory.
+               The expired SOC 2 is not an isolated finding —
+               it is consistent with declining vendor posture
+               across SLA (58%), scorecard (68), and cooperation.
+
+  🟡 EXPIRING SOON: 1
+
+     HR-Cloud SaaS — SOC 2 Type II
+     Issued:   2025-04-15
+     Expires:  2026-04-15
+     Status:   EXPIRING IN 62 DAYS
+     Tier:     2
+     Action:   Request renewal timeline from vendor
+               Schedule follow-up for 30-day mark
+
+  ✅ CURRENT: 5 attestations across 3 vendors
+
+     CloudPlatform Corp — SOC 2 Type II    Expires: 2026-09-15 (215 days)
+     CloudPlatform Corp — ISO 27001        Expires: 2027-03-01 (382 days)
+     IdentityFirst Inc — SOC 2 Type II     Expires: 2026-06-30 (138 days)
+     SecureDefend Tools — SOC 2 Type II    Expires: 2026-11-01 (262 days)
+     SecureDefend Tools — ISO 27001        Expires: 2027-06-15 (488 days)
+
+────────────────────────────────────────────────────────────────────────
+  RISK REGISTER IMPACT
+────────────────────────────────────────────────────────────────────────
+
+  2 drift findings appended to risk-register.jsonl:
+    DRIFT-ATT-BackupVault-Pro-SOC-2-Type-II   [HIGH]
+    DRIFT-ATT-HR-Cloud-SaaS-SOC-2-Type-II     [MEDIUM]
+
+  SRAM-Current.md updated with drift alert section.
+  AO will see drift alerts on dashboard at next review.
+
+────────────────────────────────────────────────────────────────────────
+  DRIFT DETECTION ROADMAP
+────────────────────────────────────────────────────────────────────────
+
+  Phase 1 (DEPLOYED):  Attestation expiry — this scan
+  Phase 2 (PLANNED):   Tag compliance drift (FinOps)
+                       Reservation utilization drift
+                       Orphan accumulation drift
+  Phase 3 (PLANNED):   Conditional Access policy drift (IGA)
+                       RBAC assignment drift
+                       Network configuration drift
+
+  The baseline doesn't stay sealed if attestations decay.
+  Drift detection ensures the AO's stamp means something
+  not just on seal day, but every day after.
+
+════════════════════════════════════════════════════════════════════════
+  © 2026 Stella Maris Governance LLC
+  The work speaks for itself.
+════════════════════════════════════════════════════════════════════════
