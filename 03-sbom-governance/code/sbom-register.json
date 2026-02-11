@@ -1,0 +1,79 @@
+{
+  "_metadata": {
+    "pack": "sbom-governance",
+    "version": "1.0.0",
+    "description": "SBOM register — tracks all SBOMs, component counts, and vulnerability summary",
+    "last_updated": "2026-02-11"
+  },
+  "sboms": [
+    {
+      "source": "App-1 (Internal)",
+      "format": "CycloneDX 1.5",
+      "generated": "2026-02-10",
+      "component_count": 142,
+      "ntia_status": "PASS",
+      "critical_cves": 1,
+      "high_cves": 2,
+      "max_dependency_depth": 4,
+      "refresh_cadence": "Every merge to main"
+    },
+    {
+      "source": "App-2 (Internal)",
+      "format": "CycloneDX 1.5",
+      "generated": "2026-02-10",
+      "component_count": 89,
+      "ntia_status": "PASS",
+      "critical_cves": 1,
+      "high_cves": 1,
+      "max_dependency_depth": 7,
+      "refresh_cadence": "Every merge to main"
+    },
+    {
+      "source": "App-3 (Internal)",
+      "format": "CycloneDX 1.5",
+      "generated": "2026-02-09",
+      "component_count": 211,
+      "ntia_status": "PASS",
+      "critical_cves": 1,
+      "high_cves": 3,
+      "max_dependency_depth": 9,
+      "refresh_cadence": "Every merge to main"
+    },
+    {
+      "source": "CloudPlatform Corp (Vendor)",
+      "format": "CycloneDX 1.5",
+      "generated": "2026-01-15",
+      "component_count": 312,
+      "ntia_status": "PASS",
+      "critical_cves": 1,
+      "high_cves": 1,
+      "max_dependency_depth": null,
+      "refresh_cadence": "Quarterly",
+      "next_refresh": "2026-04-15"
+    },
+    {
+      "source": "SecureDefend Tools (Vendor)",
+      "format": "SPDX 2.3 (converted)",
+      "generated": "2025-12-20",
+      "component_count": 178,
+      "ntia_status": "PASS",
+      "critical_cves": 1,
+      "high_cves": 0,
+      "max_dependency_depth": null,
+      "refresh_cadence": "Major release",
+      "next_refresh": "2026-06-20"
+    }
+  ],
+  "vendor_gaps": [
+    {"vendor": "IdentityFirst Inc", "status": "Non-compliant format (Excel). Re-requested."},
+    {"vendor": "HR-Cloud SaaS", "status": "Not provided. Vendor states 2026 roadmap."},
+    {"vendor": "BackupVault Pro", "status": "No response after 2 requests."}
+  ],
+  "summary": {
+    "total_sboms": 5,
+    "total_components": 587,
+    "vendor_coverage_critical_high": "40%",
+    "critical_cves_active": 3,
+    "high_cves_active": 7
+  }
+}

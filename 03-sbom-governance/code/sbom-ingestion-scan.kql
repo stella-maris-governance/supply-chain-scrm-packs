@@ -1,0 +1,25 @@
+// SBOM Freshness & Gap Scanner
+// Run weekly: identifies stale vendor SBOMs and missing Critical/High vendor SBOMs
+
+let staleThresholdDays = 180;
+let today = now();
+//
+SBOMGovernance_CL
+| where EventType_s == "SBOMIngested"
+| summarize LatestSBOM = arg_max(TimeGenerated, *) by VendorName_s
+| extend SBOMDate = todatetime(SBOMDate_s)
+| extend DaysSinceUpdate = datetime_diff('day', today, SBOMDate)
+| extend Status = case(
+    DaysSinceUpdate > staleThresholdDays, "STALE",
+    DaysSinceUpdate > (staleThresholdDays - 30), "APPROACHING STALE",
+    "Current"
+  )
+| where Status != "Current"
+| project
+    VendorName_s,
+    Tier_s,
+    SBOMDate,
+    DaysSinceUpdate,
+    Status,
+    ComponentCount_d
+| sort by DaysSinceUpdate desc

@@ -1,0 +1,37 @@
+graph TD
+    subgraph SOURCES["SBOM Sources"]
+        CICD["CI/CD Pipeline"]
+        VENDOR["Vendor-Provided"]
+    end
+
+    subgraph VALIDATE["Validation"]
+        NTIA["NTIA Element Check"]
+        FORMAT["Format Validation"]
+    end
+
+    subgraph ANALYZE["Analysis"]
+        INVENTORY["Component Inventory"]
+        CVE["Vulnerability Correlation"]
+        LICENSE["License Classification"]
+        DEPTH["Dependency Depth"]
+    end
+
+    subgraph GOVERN["Governance"]
+        REGISTER["SBOM Register"]
+        ALERT["Critical CVE Alerts"]
+        SCORE["Feed to Pack 01"]
+        REVIEW["Quarterly Review"]
+    end
+
+    CICD --> NTIA
+    VENDOR --> FORMAT --> NTIA
+    NTIA --> INVENTORY
+    INVENTORY --> CVE
+    INVENTORY --> LICENSE
+    INVENTORY --> DEPTH
+    CVE --> ALERT
+    CVE --> REGISTER
+    LICENSE --> REGISTER
+    DEPTH --> REGISTER
+    REGISTER --> SCORE
+    REGISTER --> REVIEW
