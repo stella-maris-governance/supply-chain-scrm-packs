@@ -1,0 +1,37 @@
+// Vendor Scorecard Trend Analysis
+// Run weekly: calculates 90-day rolling trend for all monitored vendors
+
+let trendWindow = 90d;
+let today = now();
+//
+VendorScorecard_CL
+| where TimeGenerated > ago(trendWindow)
+| summarize
+    LatestScore = arg_max(TimeGenerated, CompositeScore_d),
+    OldestScore = arg_min(TimeGenerated, CompositeScore_d),
+    DataPoints = count(),
+    MinScore = min(CompositeScore_d),
+    MaxScore = max(CompositeScore_d)
+    by VendorName_s
+| extend ScoreChange = LatestScore - OldestScore
+| extend PeriodDays = datetime_diff('day', LatestScore, OldestScore)
+| extend Trend = case(
+    abs(ScoreChange) <= 5, "STABLE",
+    ScoreChange > 5, "IMPROVING",
+    ScoreChange < -15, "RAPID DECLINE",
+    ScoreChange < -5, "DECLINING",
+    "STABLE"
+  )
+| extend AlertNeeded = Trend in ("DECLINING", "RAPID DECLINE")
+| project
+    VendorName_s,
+    LatestScore = round(LatestScore, 1),
+    OldestScore = round(OldestScore, 1),
+    ScoreChange = round(ScoreChange, 1),
+    PeriodDays,
+    Trend,
+    DataPoints,
+    MinScore = round(MinScore, 1),
+    MaxScore = round(MaxScore, 1),
+    AlertNeeded
+| sort by ScoreChange asc

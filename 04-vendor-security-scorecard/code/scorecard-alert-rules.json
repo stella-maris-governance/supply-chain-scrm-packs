@@ -1,0 +1,49 @@
+{
+  "_metadata": {
+    "pack": "vendor-security-scorecard",
+    "version": "1.0.0",
+    "description": "Scorecard alert rules for threshold breaches and signal events"
+  },
+  "rules": [
+    {
+      "id": "SC-ALERT-001",
+      "name": "Composite Below Concern Threshold",
+      "condition": "composite_score < 60",
+      "severity": "High",
+      "action": "Notify risk owner + trigger Pack 01 re-assessment",
+      "sla": "4 hours"
+    },
+    {
+      "id": "SC-ALERT-002",
+      "name": "Composite Below Critical Threshold",
+      "condition": "composite_score < 40",
+      "severity": "Critical",
+      "action": "Escalate to CISO. Activate contingency planning.",
+      "sla": "1 hour"
+    },
+    {
+      "id": "SC-ALERT-003",
+      "name": "Category Below Threshold",
+      "condition": "any category_score < 40",
+      "severity": "High",
+      "action": "Investigate category root cause. Notify vendor.",
+      "sla": "4 hours"
+    },
+    {
+      "id": "SC-ALERT-004",
+      "name": "Rapid Decline Detected",
+      "condition": "composite_change < -15 over 90 days",
+      "severity": "High",
+      "action": "Trigger out-of-cycle re-assessment. Present trajectory to risk owner.",
+      "sla": "24 hours"
+    },
+    {
+      "id": "SC-ALERT-005",
+      "name": "Breach Database Hit",
+      "condition": "vendor domain in breach database (new entry)",
+      "severity": "Critical",
+      "action": "Immediate vendor contact. Activate Pack 05 if data affected.",
+      "sla": "1 hour"
+    }
+  ]
+}

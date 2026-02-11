@@ -1,0 +1,97 @@
+{
+  "_metadata": {
+    "pack": "vendor-security-scorecard",
+    "version": "1.0.0",
+    "description": "Vendor scorecard register. Updated weekly.",
+    "last_updated": "2026-02-10"
+  },
+  "vendors": [
+    {
+      "vendor_name": "CloudPlatform Corp",
+      "tier": "Critical",
+      "composite_score": 91,
+      "status": "HEALTHY",
+      "trend": "STABLE",
+      "trend_change": 1,
+      "category_scores": {
+        "external_security": 92,
+        "financial_health": 88,
+        "compliance_currency": 90,
+        "internal_behavior": 95,
+        "relationship_health": 90
+      },
+      "alerts_30d": 0,
+      "last_updated": "2026-02-10"
+    },
+    {
+      "vendor_name": "IdentityFirst Inc",
+      "tier": "Critical",
+      "composite_score": 71,
+      "status": "WATCH",
+      "trend": "DECLINING",
+      "trend_change": -6,
+      "category_scores": {
+        "external_security": 70,
+        "financial_health": 62,
+        "compliance_currency": 68,
+        "internal_behavior": 85,
+        "relationship_health": 72
+      },
+      "alerts_30d": 1,
+      "alert_detail": "Exposed port 8443 detected",
+      "last_updated": "2026-02-10"
+    },
+    {
+      "vendor_name": "HR-Cloud SaaS",
+      "tier": "High",
+      "composite_score": 72,
+      "status": "WATCH",
+      "trend": "STABLE",
+      "trend_change": -3,
+      "category_scores": {
+        "external_security": 78,
+        "financial_health": 82,
+        "compliance_currency": 60,
+        "internal_behavior": 80,
+        "relationship_health": 65
+      },
+      "alerts_30d": 0,
+      "last_updated": "2026-02-10"
+    },
+    {
+      "vendor_name": "SecureDefend Tools",
+      "tier": "High",
+      "composite_score": 87,
+      "status": "HEALTHY",
+      "trend": "STABLE",
+      "trend_change": -2,
+      "category_scores": {
+        "external_security": 90,
+        "financial_health": 80,
+        "compliance_currency": 85,
+        "internal_behavior": 92,
+        "relationship_health": 88
+      },
+      "alerts_30d": 0,
+      "last_updated": "2026-02-10"
+    },
+    {
+      "vendor_name": "BackupVault Pro",
+      "tier": "High",
+      "composite_score": 68,
+      "status": "WATCH",
+      "trend": "DECLINING",
+      "trend_change": -8,
+      "category_scores": {
+        "external_security": 82,
+        "financial_health": 70,
+        "compliance_currency": 55,
+        "internal_behavior": 78,
+        "relationship_health": 58
+      },
+      "alerts_30d": 1,
+      "alert_detail": "Compliance Currency below category threshold",
+      "last_updated": "2026-02-10"
+    }
+  ]
+}

@@ -1,0 +1,37 @@
+graph TD
+    subgraph SIGNALS["Signal Sources"]
+        EXT["External: SSL/DNS/Breach"]
+        FIN["Financial: SEC/News"]
+        COMP["Compliance: Pack 02+03"]
+        INT["Internal: Sign-in/API/CIEM"]
+        REL["Relationship: SLA/Response"]
+    end
+
+    subgraph ENGINE["Scorecard Engine"]
+        COLLECT["Signal Collection"]
+        WEIGHT["Weighted Scoring 5 Categories"]
+        COMPOSITE["Composite Score"]
+        TREND["90-Day Trend Analysis"]
+    end
+
+    subgraph ACTION["Governance Actions"]
+        HEALTHY["Healthy: Normal Watch"]
+        WATCH["Watch: Elevated Monitoring"]
+        CONCERN["Concern: Re-Assessment"]
+        CRITICAL["Critical: CISO Escalation"]
+    end
+
+    EXT --> COLLECT
+    FIN --> COLLECT
+    COMP --> COLLECT
+    INT --> COLLECT
+    REL --> COLLECT
+
+    COLLECT --> WEIGHT
+    WEIGHT --> COMPOSITE
+    COMPOSITE --> TREND
+
+    COMPOSITE --> HEALTHY
+    COMPOSITE --> WATCH
+    COMPOSITE --> CONCERN
+    COMPOSITE --> CRITICAL
