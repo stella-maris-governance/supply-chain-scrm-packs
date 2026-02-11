@@ -1,0 +1,79 @@
+========================================================================
+  STELLA MARIS GOVERNANCE — VENDOR RISK PORTFOLIO ASSESSMENT
+  SCRM Pack 01 — scrm_tier_one.py v2.0.0
+========================================================================
+
+  Date:     2026-02-12
+  Assessor: Robert Myers, MBA
+  Vendors:  5
+
+────────────────────────────────────────────────────────────────────────
+  PORTFOLIO SUMMARY
+────────────────────────────────────────────────────────────────────────
+
+  Vendor                    Tier   Score    Disposition                   
+  ───────────────────────── ───── ─────── ─────────────────────────────
+  CloudPlatform Corp        1      375      REJECT
+  IdentityFirst Inc         1      850      REJECT
+  HR-Cloud SaaS             2      1282     REJECT
+  SecureDefend Tools        2      338      REJECT
+  BackupVault Pro           1      2200     REJECT
+
+────────────────────────────────────────────────────────────────────────
+  DETAILED ASSESSMENTS
+────────────────────────────────────────────────────────────────────────
+
+  🛑 CloudPlatform Corp (Tier 1)
+     Final Score: 375/100
+     Disposition: REJECT
+     Cyber Posture: 2.25
+     Financial Stability: 1.50
+     Geopolitical Risk: 0.00
+     Justification: 10/10 subfactors documented
+
+  🛑 IdentityFirst Inc (Tier 1)
+     Final Score: 850/100
+     Disposition: REJECT
+     Cyber Posture: 5.00
+     Financial Stability: 3.50
+     Geopolitical Risk: 0.00
+     Justification: 10/10 subfactors documented
+
+  🛑 HR-Cloud SaaS (Tier 2)
+     Final Score: 1282/100
+     Disposition: REJECT
+     Cyber Posture: 9.75
+     Financial Stability: 4.50
+     Geopolitical Risk: 0.00
+     Justification: 10/10 subfactors documented
+
+  🛑 SecureDefend Tools (Tier 2)
+     Final Score: 338/100
+     Disposition: REJECT
+     Cyber Posture: 2.25
+     Financial Stability: 1.50
+     Geopolitical Risk: 0.00
+     Justification: 10/10 subfactors documented
+
+  🛑 BackupVault Pro (Tier 1)
+     Final Score: 2200/100
+     Disposition: REJECT
+     Cyber Posture: 13.50
+     Financial Stability: 8.50
+     Geopolitical Risk: 0.00
+     Justification: 10/10 subfactors documented
+
+════════════════════════════════════════════════════════════════════════
+  VENDOR RISK PORTFOLIO STATUS
+════════════════════════════════════════════════════════════════════════
+
+  ✅ APPROVE:                  0
+  ⚠️  APPROVE WITH MITIGATIONS: 0
+  🟡 CONDITIONAL:              0
+  🛑 REJECT:                   5
+
+  Portfolio health: 0/5 vendors fully approved
+
+  © 2026 Stella Maris Governance LLC
+  The work speaks for itself.
+════════════════════════════════════════════════════════════════════════
