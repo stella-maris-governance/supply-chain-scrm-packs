@@ -1,0 +1,106 @@
+{
+  "_metadata": {
+    "pack": "attestation-validation",
+    "version": "1.0.0",
+    "description": "Attestation register. Tracks every report received, validated, and expiring.",
+    "last_validated": "2026-02-11"
+  },
+  "attestations": [
+    {
+      "vendor": "CloudPlatform Corp",
+      "report_type": "SOC 2 Type II",
+      "issue_date": "2025-06-15",
+      "expiry_date": "2026-06-15",
+      "auditor": "PwC",
+      "validation_status": "PASS",
+      "checklist_score": "15/15",
+      "findings": "Scope verified for US-EAST-1 and US-WEST-2. All trust criteria included. 0 exceptions.",
+      "cuec_mapped": true,
+      "cuec_count": 3
+    },
+    {
+      "vendor": "CloudPlatform Corp",
+      "report_type": "Penetration Test",
+      "issue_date": "2025-09-01",
+      "expiry_date": "2026-09-01",
+      "auditor": "NCC Group (CREST)",
+      "validation_status": "PASS",
+      "checklist_score": "12/12",
+      "findings": "0 critical, 2 high remediated + re-tested, full technical report provided.",
+      "cuec_mapped": false,
+      "cuec_count": 0
+    },
+    {
+      "vendor": "IdentityFirst Inc",
+      "report_type": "ISO 27001",
+      "issue_date": "2024-11-01",
+      "expiry_date": "2027-11-01",
+      "auditor": "BSI (UKAS accredited)",
+      "validation_status": "CONDITIONAL",
+      "checklist_score": "8/10",
+      "findings": "SoA excludes MDM (A.8.1). 1 minor nonconformity in surveillance audit.",
+      "cuec_mapped": false,
+      "cuec_count": 0
+    },
+    {
+      "vendor": "IdentityFirst Inc",
+      "report_type": "Penetration Test",
+      "issue_date": "2025-07-15",
+      "expiry_date": "2026-07-15",
+      "auditor": "Independent (OSCP)",
+      "validation_status": "CONDITIONAL",
+      "checklist_score": "9/12",
+      "findings": "API not tested (scope gap). Executive summary only — full report requested.",
+      "cuec_mapped": false,
+      "cuec_count": 0
+    },
+    {
+      "vendor": "HR-Cloud SaaS",
+      "report_type": "SOC 2 Type II",
+      "issue_date": "2025-03-20",
+      "expiry_date": "2026-03-20",
+      "auditor": "Grant Thornton",
+      "validation_status": "CONDITIONAL",
+      "checklist_score": "12/15",
+      "findings": "Scope mismatch: payroll module not covered. 2 exceptions. Approaching stale (11 months).",
+      "cuec_mapped": true,
+      "cuec_count": 2
+    },
+    {
+      "vendor": "SecureDefend Tools",
+      "report_type": "SOC 2 Type II",
+      "issue_date": "2025-09-10",
+      "expiry_date": "2026-09-10",
+      "auditor": "Deloitte",
+      "validation_status": "PASS",
+      "checklist_score": "14/15",
+      "findings": "1 minor exception (user deprovisioning SLA exceeded by 3 hours). Management response adequate.",
+      "cuec_mapped": true,
+      "cuec_count": 2
+    },
+    {
+      "vendor": "SecureDefend Tools",
+      "report_type": "ISO 27001",
+      "issue_date": "2025-05-01",
+      "expiry_date": "2028-05-01",
+      "auditor": "ANAB accredited body",
+      "validation_status": "PASS",
+      "checklist_score": "10/10",
+      "findings": "Full scope. No relevant exclusions. Transitioned to 2022. Clean surveillance.",
+      "cuec_mapped": false,
+      "cuec_count": 0
+    },
+    {
+      "vendor": "BackupVault Pro",
+      "report_type": "SOC 2 Type II",
+      "issue_date": "2025-01-15",
+      "expiry_date": "2026-01-15",
+      "auditor": "BDO",
+      "validation_status": "CONDITIONAL",
+      "checklist_score": "11/15",
+      "findings": "STALE (13 months). Encryption key mgmt subservice carved out. 3 exceptions, 1 unresolved.",
+      "cuec_mapped": true,
+      "cuec_count": 0
+    }
+  ]
+}

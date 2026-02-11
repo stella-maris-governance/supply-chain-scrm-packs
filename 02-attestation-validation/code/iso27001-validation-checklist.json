@@ -1,0 +1,19 @@
+{
+  "_metadata": {
+    "pack": "attestation-validation",
+    "version": "1.0.0",
+    "description": "10-point ISO 27001 certificate validation checklist"
+  },
+  "checklist": [
+    {"id": 1, "check": "Certificate currently valid", "pass_criteria": "Not expired. Typically 3-year cycle."},
+    {"id": 2, "check": "Certification body accredited", "pass_criteria": "UKAS, ANAB, or recognized national body. Verify on registry."},
+    {"id": 3, "check": "Scope covers relevant services and locations", "pass_criteria": "Your contracted services explicitly in scope"},
+    {"id": 4, "check": "Statement of Applicability reviewed", "pass_criteria": "SoA obtained. Exclusions documented with justification. Relevant exclusions flagged."},
+    {"id": 5, "check": "Surveillance audit current", "pass_criteria": "Most recent surveillance completed on schedule"},
+    {"id": 6, "check": "No open major nonconformities", "pass_criteria": "Majors resolved. If open, timeline and risk documented."},
+    {"id": 7, "check": "Minor nonconformities tracked", "pass_criteria": "Count and pattern assessed. Systemic patterns flagged."},
+    {"id": 8, "check": "Transitioned to ISO 27001:2022", "pass_criteria": "2013 version deadline Oct 2025. Must be on 2022."},
+    {"id": 9, "check": "Relevant extensions held", "pass_criteria": "27017 (cloud), 27018 (PII), 27701 (privacy) as applicable"},
+    {"id": 10, "check": "No suspension or withdrawal history", "pass_criteria": "Check certification body public registry"}
+  ]
+}

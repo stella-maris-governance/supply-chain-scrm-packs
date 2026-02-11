@@ -1,0 +1,31 @@
+// Attestation Expiry Scanner
+// Run weekly: identifies attestations approaching or past expiry
+// 60-day warning window
+
+let warningDays = 60;
+let today = now();
+//
+AttestationGovernance_CL
+| where EventType_s == "AttestationLogged"
+| summarize LatestEntry = arg_max(TimeGenerated, *) by VendorName_s, ReportType_s
+| extend ExpiryDate = todatetime(ExpiryDate_s)
+| extend DaysUntilExpiry = datetime_diff('day', ExpiryDate, today)
+| extend MonthsAge = datetime_diff('day', today, todatetime(IssueDate_s)) / 30.0
+| extend Status = case(
+    DaysUntilExpiry < 0, "EXPIRED",
+    MonthsAge > 14, "EXPIRED (>14 months)",
+    MonthsAge > 12, "STALE (>12 months)",
+    DaysUntilExpiry <= warningDays, "EXPIRING SOON",
+    "Current"
+  )
+| where Status != "Current"
+| project
+    VendorName_s,
+    ReportType_s,
+    IssueDate_s,
+    ExpiryDate_s,
+    DaysUntilExpiry,
+    MonthsAge = round(MonthsAge, 1),
+    Status,
+    ValidationStatus_s
+| sort by DaysUntilExpiry asc

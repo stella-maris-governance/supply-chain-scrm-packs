@@ -1,0 +1,24 @@
+{
+  "_metadata": {
+    "pack": "attestation-validation",
+    "version": "1.0.0",
+    "description": "15-point SOC 2 Type II validation checklist. We read the report."
+  },
+  "checklist": [
+    {"id": 1, "check": "Report date within 12 months", "category": "Currency", "pass_criteria": "Issue date < 12 months ago", "stale_threshold_months": 14},
+    {"id": 2, "check": "Observation period >= 6 months", "category": "Currency", "pass_criteria": "Testing period covers minimum 6 months"},
+    {"id": 3, "check": "Auditor identity and reputation", "category": "Credibility", "pass_criteria": "AICPA-member CPA firm. Verify registration."},
+    {"id": 4, "check": "Scope covers services used", "category": "Scope", "pass_criteria": "Your specific product/service explicitly named in scope description"},
+    {"id": 5, "check": "Trust service criteria coverage", "category": "Scope", "pass_criteria": "Security (required). Availability, Confidentiality, PI, Privacy as applicable."},
+    {"id": 6, "check": "Subservice organization carve-outs", "category": "Scope", "pass_criteria": "No carve-outs for components in your data path. If carved out, document gap."},
+    {"id": 7, "check": "Control descriptions address your risks", "category": "Relevance", "pass_criteria": "Controls described map to risks identified in Pack 01 assessment"},
+    {"id": 8, "check": "Tests of operating effectiveness performed", "category": "Assurance", "pass_criteria": "Type II (tested), not Type I (described only)"},
+    {"id": 9, "check": "Exceptions in test results", "category": "Findings", "pass_criteria": "Count, materiality, and remediation status documented"},
+    {"id": 10, "check": "Qualified or adverse opinions", "category": "Findings", "pass_criteria": "Unqualified opinion preferred. Qualified = significant finding."},
+    {"id": 11, "check": "Complementary User Entity Controls (CUECs)", "category": "Dependencies", "pass_criteria": "All CUECs identified and mapped to internal controls"},
+    {"id": 12, "check": "Management response to exceptions", "category": "Findings", "pass_criteria": "Acknowledged and remediated, not explained away"},
+    {"id": 13, "check": "Consistency with prior year", "category": "Trend", "pass_criteria": "No new exceptions in same categories. No persistent unresolved findings."},
+    {"id": 14, "check": "Data residency disclosed", "category": "Compliance", "pass_criteria": "Storage locations documented and aligned with regulatory requirements"},
+    {"id": 15, "check": "Bridging letter on file", "category": "Currency", "pass_criteria": "If report period doesn't cover today, bridging letter attests no material changes"}
+  ]
+}

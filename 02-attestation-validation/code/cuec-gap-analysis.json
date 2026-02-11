@@ -1,0 +1,78 @@
+{
+  "_metadata": {
+    "pack": "attestation-validation",
+    "version": "1.0.0",
+    "description": "CUEC Linkage Ledger — maps vendor expectations to internal controls. The chain of command."
+  },
+  "cuec_mappings": [
+    {
+      "vendor": "CloudPlatform Corp",
+      "cuec_requirement": "MFA Enforcement for all user accounts",
+      "internal_control_mapping": "identity-iga-packs/03-conditional-access-baseline/CA001",
+      "control_description": "Conditional Access policy enforces MFA for all users",
+      "last_verification_date": "2026-02-11",
+      "verification_source": "Pack 03 E-v-O Control #1",
+      "status": "VALIDATED"
+    },
+    {
+      "vendor": "CloudPlatform Corp",
+      "cuec_requirement": "Quarterly access review completion",
+      "internal_control_mapping": "identity-iga-packs/02-access-reviews-automation/AR-ROLE-Quarterly",
+      "control_description": "Quarterly role-based access review with auto-revoke on non-response",
+      "last_verification_date": "2026-02-11",
+      "verification_source": "Pack 02 E-v-O Control #2",
+      "status": "VALIDATED"
+    },
+    {
+      "vendor": "CloudPlatform Corp",
+      "cuec_requirement": "Encryption of data at rest in client environment",
+      "internal_control_mapping": "cloud-security-packs/azure-encryption-policy (planned)",
+      "control_description": "Azure Storage service encryption enabled by default",
+      "last_verification_date": "2026-02-11",
+      "verification_source": "Azure portal verification",
+      "status": "VALIDATED"
+    },
+    {
+      "vendor": "HR-Cloud SaaS",
+      "cuec_requirement": "Timely user deprovisioning within 24 hours of termination",
+      "internal_control_mapping": "identity-iga-packs/01-zero-touch-jml-lifecycle/LCE-Leaver",
+      "control_description": "Leaver lifecycle event triggers within 4 hours via HR attribute change",
+      "last_verification_date": "2026-02-11",
+      "verification_source": "Pack 01 E-v-O Control #4",
+      "status": "VALIDATED"
+    },
+    {
+      "vendor": "HR-Cloud SaaS",
+      "cuec_requirement": "Log review and security monitoring",
+      "internal_control_mapping": "identity-iga-packs/09-identity-threat-detection/ITDR-Sentinel",
+      "control_description": "Continuous identity monitoring via Sentinel with MTTD < 15 min",
+      "last_verification_date": "2026-02-11",
+      "verification_source": "Pack 09 E-v-O Control #9",
+      "status": "VALIDATED"
+    },
+    {
+      "vendor": "SecureDefend Tools",
+      "cuec_requirement": "MFA Enforcement",
+      "internal_control_mapping": "identity-iga-packs/03-conditional-access-baseline/CA001",
+      "control_description": "Conditional Access policy enforces MFA for all users",
+      "last_verification_date": "2026-02-11",
+      "verification_source": "Pack 03 E-v-O Control #1",
+      "status": "VALIDATED"
+    },
+    {
+      "vendor": "SecureDefend Tools",
+      "cuec_requirement": "Access review completion",
+      "internal_control_mapping": "identity-iga-packs/02-access-reviews-automation/AR-ROLE-Quarterly",
+      "control_description": "Quarterly role-based access review with auto-revoke",
+      "last_verification_date": "2026-02-11",
+      "verification_source": "Pack 02 E-v-O Control #2",
+      "status": "VALIDATED"
+    }
+  ],
+  "summary": {
+    "total_cuecs": 7,
+    "validated": 7,
+    "gaps": 0,
+    "next_revalidation": "2026-05-11"
+  }
+}

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Screenshot 01 — Attestation Tracker</title>
+<style>
+:root{--bg:#f5f6f8;--surface:#fff;--border:#ddd;--text:#333;--muted:#777;--green:#36b37e;--yellow:#ff991f;--red:#de350b}
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:var(--bg);color:var(--text);font-family:'Segoe UI',sans-serif;font-size:13px}
+.banner{background:linear-gradient(90deg,#d4380044,#d4380022);border-bottom:2px solid #d43800;padding:8px 16px;text-align:center;font-size:12px;font-weight:600;color:#d43800}
+.main{padding:20px 24px;max-width:1200px;margin:0 auto}
+.title{font-size:20px;font-weight:600;margin-bottom:4px}
+.subtitle{color:var(--muted);margin-bottom:16px}
+table{width:100%;border-collapse:collapse;background:var(--surface);border:1px solid var(--border);border-radius:8px;overflow:hidden}
+th{text-align:left;padding:10px 14px;font-size:12px;color:var(--muted);background:#f9fafb;border-bottom:1px solid var(--border)}
+td{padding:10px 14px;font-size:13px;border-bottom:1px solid var(--border)}
+.s-pass{color:var(--green);font-weight:600}
+.s-cond{color:var(--yellow);font-weight:600}
+.s-stale{color:var(--red);font-weight:600}
+</style>
+</head>
+<body>
+<div class="banner">SAMPLE MOCKUP — Replace with production screenshot | Pack: Attestation Validation</div>
+<div class="main">
+<div class="title">Attestation Tracker</div>
+<div class="subtitle">9 attestations tracked | 4 validated PASS | 4 CONDITIONAL | 0 expired | CUEC: 7 mapped, 0 gaps</div>
+<table>
+<tr><th>Vendor</th><th>Report</th><th>Auditor</th><th>Issued</th><th>Expires</th><th>Score</th><th>Status</th><th>CUECs</th></tr>
+<tr><td>CloudPlatform Corp</td><td>SOC 2 Type II</td><td>PwC</td><td style="color:var(--muted)">Jun 2025</td><td style="color:var(--muted)">Jun 2026</td><td>15/15</td><td class="s-pass">PASS</td><td>3 mapped</td></tr>
+<tr><td>CloudPlatform Corp</td><td>Pen Test</td><td>NCC Group</td><td style="color:var(--muted)">Sep 2025</td><td style="color:var(--muted)">Sep 2026</td><td>12/12</td><td class="s-pass">PASS</td><td>—</td></tr>
+<tr><td>IdentityFirst Inc</td><td>ISO 27001</td><td>BSI</td><td style="color:var(--muted)">Nov 2024</td><td style="color:var(--muted)">Nov 2027</td><td>8/10</td><td class="s-cond">COND</td><td>—</td></tr>
+<tr><td>IdentityFirst Inc</td><td>Pen Test</td><td>Independent</td><td style="color:var(--muted)">Jul 2025</td><td style="color:var(--muted)">Jul 2026</td><td>9/12</td><td class="s-cond">COND</td><td>—</td></tr>
+<tr><td>HR-Cloud SaaS</td><td>SOC 2 Type II</td><td>Grant Thornton</td><td style="color:var(--muted)">Mar 2025</td><td style="color:var(--muted)">Mar 2026</td><td>12/15</td><td class="s-cond">COND</td><td>2 mapped</td></tr>
+<tr><td>SecureDefend Tools</td><td>SOC 2 Type II</td><td>Deloitte</td><td style="color:var(--muted)">Sep 2025</td><td style="color:var(--muted)">Sep 2026</td><td>14/15</td><td class="s-pass">PASS</td><td>2 mapped</td></tr>
+<tr><td>SecureDefend Tools</td><td>ISO 27001</td><td>ANAB body</td><td style="color:var(--muted)">May 2025</td><td style="color:var(--muted)">May 2028</td><td>10/10</td><td class="s-pass">PASS</td><td>—</td></tr>
+<tr><td>BackupVault Pro</td><td>SOC 2 Type II</td><td>BDO</td><td style="color:var(--muted)">Jan 2025</td><td style="color:var(--muted)">Jan 2026</td><td>11/15</td><td class="s-stale">STALE</td><td>—</td></tr>
+</table>
+</div>
+</body>
+</html>

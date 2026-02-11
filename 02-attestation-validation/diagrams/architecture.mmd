@@ -1,0 +1,45 @@
+graph TD
+    subgraph INPUT["Vendor Attestations"]
+        SOC2["SOC 2 Type II"]
+        ISO["ISO 27001"]
+        PENTEST["Penetration Test"]
+        FEDRAMP["FedRAMP"]
+        SELF["Self-Assessment"]
+    end
+
+    subgraph VALIDATE["Validation Layer"]
+        SOC2_CK["15-Point Checklist"]
+        ISO_CK["10-Point Checklist"]
+        PEN_CK["12-Point Checklist"]
+        COMPLETE["Completeness Check"]
+    end
+
+    subgraph ANALYSIS["Analysis"]
+        CUEC["CUEC Gap Analysis"]
+        SCOPE["Scope Mismatch Detection"]
+        EXPIRY["Expiry Tracking"]
+    end
+
+    subgraph OUTPUT["Governance Outputs"]
+        TRACKER["Attestation Tracker"]
+        SCORE_FEED["Feed to Pack 01 Scoring"]
+        IDENTITY_LINK["Link to Identity Pillar"]
+        EVIDENCE["Audit Evidence"]
+    end
+
+    SOC2 --> SOC2_CK
+    ISO --> ISO_CK
+    PENTEST --> PEN_CK
+    FEDRAMP --> COMPLETE
+    SELF --> COMPLETE
+
+    SOC2_CK --> CUEC
+    SOC2_CK --> SCOPE
+    ISO_CK --> SCOPE
+    PEN_CK --> TRACKER
+
+    CUEC --> IDENTITY_LINK
+    SCOPE --> SCORE_FEED
+    EXPIRY --> TRACKER
+    TRACKER --> EVIDENCE
+    SCORE_FEED --> EVIDENCE
