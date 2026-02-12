@@ -184,9 +184,9 @@
 
   ┌─────────────────────────────────────────────────────────┐
   │  SIGNATURE BLOCK                                        │
-  │  Prepared by:   Atlas (PM/Architect)     Date: ________ │
+  │  Prepared by:   Principal Architect (PM/Architect)     Date: ________ │
   │  Reviewed by:   Robert Myers (Principal) Date: ________ │
-  │  Audited by:    North Star (CoS)         Date: ________ │
+  │  Audited by:    CoS (Internal Auditor) (CoS)         Date: ________ │
   │  Authorized by: Regina Myers (AO)        Date: ________ │
   └─────────────────────────────────────────────────────────┘
 
